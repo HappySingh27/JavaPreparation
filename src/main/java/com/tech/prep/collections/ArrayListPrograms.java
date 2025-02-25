@@ -2,7 +2,7 @@ package com.tech.prep.collections;
 
 import java.util.*;
 
-public class ArrayList {
+public class ArrayListPrograms {
 
   public static void main(String[] args){
 
@@ -17,11 +17,13 @@ public class ArrayList {
     d. Sort ArrayList
     e. Reverse ArrayList
   */
-  pubic void ALremoveDupsSortandReverse(){
+  public void ALremoveDupsSortandReverse(){
 
         Integer[] a = {23,23,5,1,2,398,89,34,56,65,5,398,1};
         
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(a));
+        
+        
         Set<Integer> lhset = new LinkedHashSet<>();
         
         lhset.addAll(list);
