@@ -199,4 +199,14 @@ public class StringPrograms {
         System.out.println(str);
 	} // removeSpecialCharFromString
 
+	void stringContainsOnlyDigits(){
+		String str = "7653455679";
+        
+        	str=str.replaceAll("^\\d+$","");
+        	str = str.isEmpty()?"Contains only Digits":"Does not contains only Digits";
+        
+        	System.out.println(str);
+		
+	} //stringContainsOnlyDigits
+
 } // StringPrograms
