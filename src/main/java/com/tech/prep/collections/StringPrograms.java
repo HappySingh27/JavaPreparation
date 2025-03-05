@@ -2,6 +2,26 @@ package com.tech.prep.collections;
 
 import java.util.*;
 
+/*
+ * 1. reverseStringUsing_charAt()
+ * 2. reverseStringUsing_charAt()
+ * 3. reverseStringUsing_stringBuilder()
+ * 4. reverseStringwithoutChangingPositionOfWords
+ * 5. palindrome()
+ * 6. firstNonRepeatingChar_usingMap
+ * 7. firstNonRepeatingChar_usingForLoop()
+ * 8. countOccurenceOfCharacterInString
+ * 9. anagram()
+ * 10. removeDigitsFromString
+ * 11. removeSpecialCharFromString
+ * 12. stringContainsOnlyDigits
+ * 13. removeDuplicatesFromString
+ * 14. removeDuplicatesFromStringWithoutCollections
+ * 15. removeAllOccurencesofACharFromString
+ * 15. 
+ * 16. 
+ * */
+
 public class StringPrograms {
 
 	String st = "My name is Happy";
@@ -61,6 +81,24 @@ public class StringPrograms {
 		System.out.println(st);
 
 	} // reverseStringUsing_stringBuilder
+	
+	void reverseStringwithoutChangingPositionOfWords() {
+
+		String str = "this is 2025 march";
+
+		String[] strSplit = str.split(" ");
+
+		int i = 0;
+		for (String str1 : strSplit) {
+			strSplit[i] = new StringBuilder(str1).reverse().toString();
+			i++;
+		}
+
+		str = String.join(" ", strSplit);
+
+		System.out.println(str);
+
+	}
 
 	void palindrome() {
 
@@ -151,7 +189,7 @@ public class StringPrograms {
 		char[] ch1 = str1.toCharArray();
 		String str2 = "secure";
 		char[] ch2 = str2.toCharArray();
-	
+
 		Arrays.sort(ch1);
 		Arrays.sort(ch2);
 
@@ -166,47 +204,84 @@ public class StringPrograms {
 
 		if (str1.equals(str2))
 			System.out.println("Anagram");
-		
-	} //anagram
-	
+
+	} // anagram
+
 	// Learn Regex, String operations becomes super easy using Regex.
 	void removeDigitsFromString() {
 		System.out.println("Hello World");
-		
+
 		String str = "4cejfj4ebDB4EDBfjebeiEFNEI463JCBEJR646b7";
-		
+
 		char[] chStr = str.toCharArray();
-		
-		for(char ch : chStr){
-		    if(((int)(ch))>='0'&& ((int)(ch))<= '9'){
-		        //Strings are immutable in java, therefore need to store it again in a String
-		        str=str.replace(ch,' ');
-		    } //if
+
+		for (char ch : chStr) {
+			if (((int) (ch)) >= '0' && ((int) (ch)) <= '9') {
+				// Strings are immutable in java, therefore need to store it again in a String
+				str = str.replace(ch, ' ');
+			} // if
 		} // for
-		
-		//Strings are immutable in java, therefore need to store it again in a String
-		str=str.replaceAll(" ", "");
-		
+
+		// Strings are immutable in java, therefore need to store it again in a String
+		str = str.replaceAll(" ", "");
+
 		System.out.println(str);
 	} // rremoveDigitsFromString
-	
+
 	void removeSpecialCharFromString() {
-	    
-        String str = "aB1@dE3#fG$hI5^jK&LmN7*pO(Q)qR8_sT+UvW9=xY!zZ0";
-        
-        str=str.replaceAll("[^a-zA-Z0-9]","");
-        
-        System.out.println(str);
+
+		String str = "aB1@dE3#fG$hI5^jK&LmN7*pO(Q)qR8_sT+UvW9=xY!zZ0";
+
+		str = str.replaceAll("[^a-zA-Z0-9]", "");
+
+		System.out.println(str);
 	} // removeSpecialCharFromString
 
-	void stringContainsOnlyDigits(){
+	void stringContainsOnlyDigits() {
 		String str = "7653455679";
-        
-        	str=str.replaceAll("^\\d+$","");
-        	str = str.isEmpty()?"Contains only Digits":"Does not contains only Digits";
-        
-        	System.out.println(str);
-		
-	} //stringContainsOnlyDigits
+	
+
+		// better way is to use str.matches() method
+		str = str.replaceAll("^\\d+$", "");
+		str = str.isEmpty() ? "Contains only Digits" : "Does not contains only Digits";
+
+		System.out.println(str);
+
+	} // stringContainsOnlyDigits
+
+	void removeDuplicatesFromString() {
+
+		String str = "ueytiuresjbjawuireyiwscsjuweirw";
+
+		char[] chStr = str.toCharArray();
+
+		Set<Character> set = new LinkedHashSet<>();
+
+		for (char ch : chStr) {
+			set.add(ch);
+		}
+
+		str = "";
+		for (char ch : set) {
+			str = str + ch;
+		}
+
+		System.out.println(str);
+
+	}
+
+	void removeDuplicatesFromStringWithoutCollections() {
+		/*
+		 * Complete this
+		 */
+	}
+
+	void removeAllOccurencesofACharFromString() {
+		/*
+		 * Complete this
+		 */
+	}
+
+
 
 } // StringPrograms
