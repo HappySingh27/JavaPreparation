@@ -180,6 +180,9 @@ public class StringPrograms {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 
 		}
+		
+		StringBuilder s = new StringBuilder();
+	
 
 	} // countOccurenceOfCharacterInString
 
@@ -280,6 +283,24 @@ public class StringPrograms {
 		/*
 		 * Complete this
 		 */
+	}
+	
+	void findingAllsubStrings() {
+		
+        String str = "abc";
+        int i,j;
+        
+        ArrayList<String> list = new ArrayList<>();
+        
+        for(i=0;i<str.length();i++){
+            for(j=i+1;j<str.length()+1;j++){
+                list.add(str.substring(i,j));
+            } //j
+        } //i
+        
+        for(String s : list){
+            System.out.println(s);
+        }
 	}
 
 
