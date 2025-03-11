@@ -304,35 +304,26 @@ public class StringPrograms {
 	}
 	
 	void findlongestPalindromeSubString() {
-		
-        String str = "ababa";
-        String str1;
-        int i,j;
-        
-        ArrayList<String> list = new ArrayList<>();
-        ArrayList<String> list2 = new ArrayList<>();
-        Map<String,Integer> map = new LinkedHashMap<>();
-        
-        for(i=0;i<str.length();i++){
-            for(j=i+1;j<str.length()+1;j++){
-                list.add(str.substring(i,j));
-            } //j
-        } //i
-        
-        for(String s1 : list){
-            str1 = new StringBuilder(s1).reverse().toString();
-            list2.add(str1);
-        }
-        
-        for(i=0;i<list.size();i++){
-            if(list.get(i).equals(list2.get(i))){
-                map.put(list.get(i),list.get(i).length());
-            }
-        }
-        
-        String maxKey = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
-        
-        System.out.println(maxKey);
+
+		String str = "ababa";
+		String str1;
+		int i, j;
+
+		Map<String, Integer> map = new LinkedHashMap<>();
+
+		for (i = 0; i < str.length(); i++) {
+			for (j = i + 1; j < str.length() + 1; j++) {
+				str1 = str.substring(i, j);
+				if (new StringBuilder(str1).reverse().toString().equals(str1)) {
+					map.put(str1, str1.length());
+				}
+
+			}
+		}
+
+		String maxKey = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
+
+		System.out.println(maxKey);
 
 	}
 
