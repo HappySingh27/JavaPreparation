@@ -306,24 +306,27 @@ public class StringPrograms {
 	void findlongestPalindromeSubString() {
 
 		String str = "ababa";
-		String str1;
-		int i, j;
-
-		Map<String, Integer> map = new LinkedHashMap<>();
+		String str1,str2="";
+		int i, j,l=0;
 
 		for (i = 0; i < str.length(); i++) {
 			for (j = i + 1; j < str.length() + 1; j++) {
 				str1 = str.substring(i, j);
-				if (new StringBuilder(str1).reverse().toString().equals(str1)) {
-					map.put(str1, str1.length());
-				}
+				if (new StringBuilder(str1).reverse().toString().equals(str1)) 
+				{
+				    if(str1.length()>l)
+				    {
+				        str2=str1;
+				        l=str1.length();
+				    } // Inner if
+				
+				} //Outer if
 
-			}
-		}
+			} //inner j
+		} //outer i
 
-		String maxKey = Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getKey();
 
-		System.out.println(maxKey);
+		System.out.println(str2);
 
 	}
 
