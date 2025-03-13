@@ -18,8 +18,16 @@ import java.util.*;
  * 13. removeDuplicatesFromString
  * 14. removeDuplicatesFromStringWithoutCollections
  * 15. removeAllOccurencesofACharFromString
- * 15. 
- * 16. 
+ * 15. findingAllsubStrings
+ * 16. findlongestPalindromeSubString
+ * 18. 
+ * 19. 
+ * 20. 
+ * 21. 
+ * 22. 
+ * 23. 
+ * 24. 
+ * 25. 
  * */
 
 public class StringPrograms {
