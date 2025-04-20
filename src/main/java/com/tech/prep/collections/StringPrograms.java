@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
  * 1. reverseStringUsing_charAt()
- * 2. reverseStringUsing_charAt()
+ * 2. reverseStringUsing_toCharArray()
  * 3. reverseStringUsing_stringBuilder()
  * 4. reverseStringwithoutChangingPositionOfWords
  * 5. palindrome()
