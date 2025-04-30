@@ -3,13 +3,17 @@ package com.tech.prep.collections;
 import java.util.*;
 
 public class Comparator {
+	
+	
 	public static void main(String[] args) {
+		
+		ComparatorUsingLambda1();
 
 
 
 	}
 	
-	public void ComparatorUsingLambda() {
+	public static void ComparatorUsingLambda1() {
 		
 		class Employee {
 			int id;
@@ -40,6 +44,13 @@ public class Comparator {
 		emp.add(new Employee(5, "Swalina", 30000));
 
 		emp.sort((a, b) -> a.getSalary() - b.getSalary());
+		
+		/*
+		 * Sorting based on Name:-
+		 * emp.sort((a, b) -> {return a.name.compareTo(b.name);});
+		 * if 2 employees have same name sort based on salary
+		 * */ 
+		
 
 		for (Employee e : emp) {
 			System.out.println(e.getName() + " : " + e.getSalary());
