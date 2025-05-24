@@ -1,6 +1,7 @@
 package com.tech.prep.collections;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /*
  * 1. reverseStringUsing_charAt()
@@ -20,8 +21,8 @@ import java.util.*;
  * 15. removeAllOccurencesofACharFromString
  * 15. findingAllsubStrings
  * 16. findlongestPalindromeSubString
- * 18. 
- * 19. 
+ * 18. A string is rotation of another string
+ * 19. Write a Java program to reverse a given string with preserving the position of spaces?
  * 20. 
  * 21. 
  * 22. 
@@ -89,7 +90,7 @@ public class StringPrograms {
 		System.out.println(st);
 
 	} // reverseStringUsing_stringBuilder
-	
+
 	void reverseStringwithoutChangingPositionOfWords() {
 
 		String str = "this is 2025 march";
@@ -188,9 +189,8 @@ public class StringPrograms {
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 
 		}
-		
+
 		StringBuilder s = new StringBuilder();
-	
 
 	} // countOccurenceOfCharacterInString
 
@@ -250,7 +250,6 @@ public class StringPrograms {
 
 	void stringContainsOnlyDigits() {
 		String str = "7653455679";
-	
 
 		// better way is to use str.matches() method
 		str = str.replaceAll("^\\d+$", "");
@@ -292,52 +291,110 @@ public class StringPrograms {
 		 * Complete this
 		 */
 	}
-	
+
 	void findingAllsubStrings() {
-		
-        String str = "abc";
-        int i,j;
-        
-        ArrayList<String> list = new ArrayList<>();
-        
-        for(i=0;i<str.length();i++){
-            for(j=i+1;j<str.length()+1;j++){
-                list.add(str.substring(i,j));
-            } //j
-        } //i
-        
-        for(String s : list){
-            System.out.println(s);
-        }
+
+		String str = "abc";
+		int i, j;
+
+		ArrayList<String> list = new ArrayList<>();
+
+		for (i = 0; i < str.length(); i++) {
+			for (j = i + 1; j < str.length() + 1; j++) {
+				list.add(str.substring(i, j));
+			} // j
+		} // i
+
+		for (String s : list) {
+			System.out.println(s);
+		}
 	}
-	
+
 	void findlongestPalindromeSubString() {
 
 		String str = "ababa";
-		String str1,str2="";
-		int i, j,l=0;
+		String str1, str2 = "";
+		int i, j, l = 0;
 
 		for (i = 0; i < str.length(); i++) {
 			for (j = i + 1; j < str.length() + 1; j++) {
 				str1 = str.substring(i, j);
-				if (new StringBuilder(str1).reverse().toString().equals(str1)) 
-				{
-				    if(str1.length()>l)
-				    {
-				        str2=str1;
-				        l=str1.length();
-				    } // Inner if
-				
-				} //Outer if
+				if (new StringBuilder(str1).reverse().toString().equals(str1)) {
+					if (str1.length() > l) {
+						str2 = str1;
+						l = str1.length();
+					} // Inner if
 
-			} //inner j
-		} //outer i
+				} // Outer if
 
+			} // inner j
+		} // outer i
 
 		System.out.println(str2);
 
 	}
 
+	// 18. A string is rotation of another string
+	public void rotationString() {
+		String given = "JavaJ2eeStrutsHibernate";
+		String rotation = "StrutsHibernateJavaJ2ee";
 
+		given = given + given;
+
+		if (given.contains(rotation))
+			System.out.println("Yes, it is a rotation");
+		else
+			System.out.println("No, it is not a rotation");
+
+		System.out.println("Try programiz.pro");
+	}
+	
+	// 19. Write a Java program to reverse a given string with preserving the position of spaces?
+	// Input - “I Am Not String”
+	// Output - "g ni rtS toNmAI"
+	
+	public void reverseStringPreservingSpace(){
+        
+        String given = "I Am Not String";
+
+        String reverse = given.replaceAll(" ","");
+         
+        reverse = new StringBuilder(reverse).
+                        reverse().toString();
+        String str="";              
+        int j=0;
+         
+        for(int i=0;i<given.length();i++){
+            
+            if(given.charAt(i)==' '){
+                str = str + ' ';
+            }
+            else{
+                str =str+reverse.charAt(j);
+                j++;
+            }
+        }               
+        System.out.println(str);
+            
+        System.out.println("Try programiz.pro");
+	}
+	
+	//20 How to reverse a sentence word by word in Java?
+	public void reverseSentenceOnlyNotWord() {
+		
+        
+        String input = "Java Concept Of The Day";
+        //Output = Day The Of Concept Java
+        
+        List<String> list = new ArrayList<>(Arrays.asList(input.split(" ")));
+        Collections.reverse(list);
+        
+        input =
+        list.stream().map(x -> x + " ").collect(Collectors.joining());
+        
+        System.out.println(input.trim());
+        System.out.println("Try programiz.pro");
+		
+	}
 
 } // StringPrograms

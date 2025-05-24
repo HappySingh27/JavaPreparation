@@ -5,7 +5,49 @@
  * 4. How do you find frequency of each element in an array or a list?
  * 5. How do you sort the given list of decimals in reverse order?
  * 6. Given a list of strings, join the strings with ‘[‘ as prefix, ‘]’ as suffix and ‘,’ as delimiter?
- * 7. 
+ * 7. 7. From the given list of integers, print the numbers which are multiples of 5?
+ * 8. Given a list of integers, find maximum and minimum of those numbers?
+ * 9. How do you merge two unsorted arrays into single sorted array using Java 8 streams?
+ * 10) How do you merge two unsorted arrays into single sorted array without duplicates?
+ * 11) How do you get three maximum numbers and three minimum numbers from the given list of integers?
+ * 12) Java 8 program to check if two strings are anagrams or not?
+ * 13) Find sum of all digits of a number in Java 8?
+ * 14) Find second largest number in an integer array?
+ * 15) Given a list of strings, sort them according to increasing order of their length?
+ * 16) Given an integer array, find sum and average of all elements?
+ * 17) How do you find common elements between two arrays?
+ * 18) Reverse each word of a string using Java 8 streams?
+ * 19) How do you find sum of first 10 natural numbers?
+ * 20) Reverse an integer array
+ * 21) Print first 10 even numbers
+ * 22) How do you find the most repeated element in an array?
+ * 23) Palindrome program using Java 8 streams
+ * 24) Given a list of strings, find out those strings which start with a number?
+ * 25) How do you extract duplicate elements from an array?
+ * 26) Print duplicate characters in a string?
+ * 27)Find first repeated character in a string?
+ * 28)Find first non-repeated character in a string?
+ * 29) Fibonacci series
+ * 29) Fibonacci series
+ * 31) How do you get last element of an array?
+ * 32. Sort Map based on Keys using stream
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * */
 
 import java.util.*;
@@ -325,7 +367,19 @@ public class StreamPrograms {
 		Set<Integer> duplicateElements = listOfIntegers.stream().filter(i -> !uniqueElements.add(i))
 				.collect(Collectors.toSet());
 		System.out.println(duplicateElements);
-
+	
+	// ------------------------------------------------------//	
+        int[] arr = new int[] {23,45,67,76,1,2,1,89,45,90};
+        Set<Integer> set = new HashSet<>();
+        
+        arr =
+        Arrays.stream(arr).filter(x -> !set.add(x)).toArray();
+    
+        System.out.println(Arrays.toString(arr));
+        
+    // ------------------------------------------------------//	
+        
+   
 		System.out.println("Try programiz.pro");
 
 	}
@@ -429,5 +483,35 @@ public class StreamPrograms {
 		 * 
 		 */
 	}
+	
+    public void sortMapUsingStream() {
+        
+        Map<String, Integer> studentMap = new HashMap<String, Integer>();
+         
+        studentMap.put("Jyous", 87);
+        studentMap.put("Klusener", 82);
+        studentMap.put("Xiangh", 91);
+        studentMap.put("Lisa", 89);
+        studentMap.put("Narayan", 95);
+        studentMap.put("Arunkumar", 86);
+        
+        Map<String,Integer> map = new LinkedHashMap<>();
+        
+        map = 
+        studentMap.entrySet().stream().sorted((x,y) -> x.getKey().length() - y.getKey().length()).collect(
+            Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (x,y) -> x,
+                LinkedHashMap::new));
+        
+        System.out.println(map);
+        
+        System.out.println("Try programiz.pro");
+        //----------------------------------------//
+        
+
+        //----------------------------------------//
+    }
 
 }
