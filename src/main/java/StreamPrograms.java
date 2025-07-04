@@ -5,7 +5,7 @@
  * 4. How do you find frequency of each element in an array or a list?
  * 5. How do you sort the given list of decimals in reverse order?
  * 6. Given a list of strings, join the strings with ‘[‘ as prefix, ‘]’ as suffix and ‘,’ as delimiter?
- * 7. 7. From the given list of integers, print the numbers which are multiples of 5?
+ * 7. From the given list of integers, print the numbers which are multiples of 5?
  * 8. Given a list of integers, find maximum and minimum of those numbers?
  * 9. How do you merge two unsorted arrays into single sorted array using Java 8 streams?
  * 10) How do you merge two unsorted arrays into single sorted array without duplicates?
@@ -512,6 +512,22 @@ public class StreamPrograms {
         
 
         //----------------------------------------//
+    }
+    
+    public static void factorial() {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        // reduce(1,(a,b) -> a*b)
+        // a - accumulator
+        // b - current item of stream
+        // 1 - intial accumulator, changes it's value to see results for better understanding
+        n = 
+        IntStream.rangeClosed(1, n).reduce(1, (a, b) -> a * b);
+        System.out.println(n);
+        
+        System.out.println("Try programiz.pro");
     }
 
 }

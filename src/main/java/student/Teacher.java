@@ -6,5 +6,6 @@ public class Teacher {
 	
 	{
 	s.name = "Happy";
+	
 	}
 }

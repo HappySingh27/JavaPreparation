@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 /*
  * 1. pyramidPrinitng
- * 2. 
+ * 2. armstrongNumber
+ * 3. Factorial using Recursion
  * */
-public class InterviewPrograms {
+public class InterviewPrograms110 {
 
 	public void pyramidPrinitng() {
 
@@ -49,6 +50,18 @@ public class InterviewPrograms {
 	        System.out.println("Not a Armstrong");
 	    }
 	        System.out.println("Try programiz.pro");
+	}
+	
+	public int fac(int n) {
+		
+		
+		if(n==1 || n==0) {
+			
+			return 1;
+		}
+		else {
+			return n * fac(n-1);
+		}
 	}
 	
 }

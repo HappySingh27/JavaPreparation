@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
  * 16. findlongestPalindromeSubString
  * 18. A string is rotation of another string
  * 19. Write a Java program to reverse a given string with preserving the position of spaces?
- * 20. 
- * 21. 
- * 22. 
+ * 20. How to reverse a sentence word by word in Java?
+ * 21. How to remove all vowels from a string in Java
+ * 22. Java program to print common characters between two strings in alphabetical order. 
  * 23. 
  * 24. 
  * 25. 
@@ -194,6 +194,7 @@ public class StringPrograms {
 
 	} // countOccurenceOfCharacterInString
 
+	// 9. Anagram
 	void anagram() {
 
 		String str1 = "rescue";
@@ -252,6 +253,9 @@ public class StringPrograms {
 		String str = "7653455679";
 
 		// better way is to use str.matches() method
+		//	# "[0-9]"  - matches exactly one character
+		//  # "[0-9]+" - matches one or more than one character
+		//  # "[0-9]*" - matches 0 or more than character
 		str = str.replaceAll("^\\d+$", "");
 		str = str.isEmpty() ? "Contains only Digits" : "Does not contains only Digits";
 
@@ -259,6 +263,8 @@ public class StringPrograms {
 
 	} // stringContainsOnlyDigits
 
+	// Remove Duplicates from String
+	// Output - ueytirsjbawc
 	void removeDuplicatesFromString() {
 
 		String str = "ueytiuresjbjawuireyiwscsjuweirw";
@@ -389,6 +395,8 @@ public class StringPrograms {
         List<String> list = new ArrayList<>(Arrays.asList(input.split(" ")));
         Collections.reverse(list);
         
+        //String.join(" ",list);
+        
         input =
         list.stream().map(x -> x + " ").collect(Collectors.joining());
         
@@ -396,5 +404,56 @@ public class StringPrograms {
         System.out.println("Try programiz.pro");
 		
 	}
+	
+	// 21. How to remove all vowels from a string in Java
+    public static void removeVowelsFromString(String[] args) {
+        
+        String str = "Java Concept of the Day";
+        
+        str = str.replaceAll("[aeiou*]","");
+        
+        System.out.println(str);
+        System.out.println("Try programiz.pro");
+    }
+    
+    // 22) Java program to print common characters between two strings in alphabetical order. 
+    public static void commonCharBtTwoStringsInAlphabeticalOrder(String[] args) {
+        
+        String str1 = "thin sticks";
+        String str2 = "thick bricks";
+        
+        // output = [c, h, i, k, s, t]
+        
+        List<String> list1 = new ArrayList<>(Arrays.
+            asList(str1.split("")));
+        List<String> list2 = new ArrayList<>(Arrays.
+            asList(str2.split("")));
+
+        list1 =
+            list1.stream()
+                .filter(x -> list2.contains(x) && !x.equals(" "))
+                .distinct()
+                .sorted()
+                .toList();
+        
+        // We can even chain intermidiate methods of stream like filter().
+        /*-------------------------------------------//
+         * 
+           list1 =
+            list1.stream()
+                .filter(x -> list2.contains(x) && !x.equals(" "))
+                .filter(x -> !x.equals(" "))
+                .distinct()
+                .sorted()
+                .toList();
+         *
+         */
+       //-------------------------------------------*/
+
+        System.out.println(list1);
+        System.out.println("Try programiz.pro");
+    }
+    
+    
 
 } // StringPrograms
