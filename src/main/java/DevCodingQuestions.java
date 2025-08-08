@@ -219,74 +219,138 @@ public class DevCodingQuestions {
 
 		System.out.println(str.substring(s, s + size));
 	}
+
+	public static void longestSubstringWithEachCharacterRepeatingAtomstKtimes(String[] args) {
+
+		// Longest Substring with All characters repeating at most k times
+		// Example to test:
+		// Input: "aaabbc", k = 2
+		// Expected Output: "aabbc" (length = 5)
+
+		String str = "aaabbc";
+
+		int l = 0;
+		int s = 0;
+		int k = 2;
+		int size = 0;
+
+		Map<Character, Integer> map = new HashMap();
+
+		for (int r = 0; r < str.length(); r++) {
+			char ch = str.charAt(r);
+			map.put(ch, map.getOrDefault(ch, 0) + 1);
+
+			while (map.get(ch) > k) {
+				char left = str.charAt(l);
+				map.put(left, map.getOrDefault(left, 0) - 1);
+				l++;
+			}
+
+			if (r - l + 1 > size) {
+				size = r - l + 1;
+				s = l;
+			}
+		}
+
+		System.out.println(str.substring(s, s + size));
+		System.out.println("Try programiz.pro");
+	}
+
+	public static void main(String[] args) {
+
+		// int[] arr = {1,3,-1,-3,5,3,6,7};
+		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8 };
+		int k = 3;
+
+		Deque<Integer> deque = new ArrayDeque<>();
+		List<Integer> list = new ArrayList<>();
+
+		for (int r = 0; r < arr.length; r++) {
+
+			while (!deque.isEmpty() && deque.peekFirst() <= r - k) {
+				deque.pollFirst();
+			}
+
+			while (!deque.isEmpty() && arr[deque.peekLast()] < arr[r]) {
+				System.out.println(deque);
+				deque.pollLast();
+				System.out.println(deque);
+			}
+
+			deque.addLast(r);
+
+			if (r >= k - 1) {
+				list.add(arr[deque.peekFirst()]);
+			}
+
+		}
+
+		System.out.println(list);
+		System.out.println("Try programiz.pro");
+	}
 	
-    public static void longestSubstringWithEachCharacterRepeatingAtomstKtimes(String[] args) {
+	public static void findMedianOfSubArrraysOfSizeK() {
+
         
-        //Longest Substring with All characters repeating at most k times
-        // Example to test:
-        // Input:  "aaabbc", k = 2
-        // Expected Output: "aabbc" (length = 5)
-        
-        String str = "aaabbc";
-        
-        int l=0;
-        int s=0;
+        int[] arr = {2147483647,2147483647};
         int k=2;
-        int size=0;
         
-        Map<Character,Integer> map = new HashMap();
+        PriorityQueue<Integer> left = new PriorityQueue<Integer>(Comparator.reverseOrder());
+        PriorityQueue<Integer> right = new PriorityQueue<Integer>();
         
-        for(int r=0;r<str.length();r++){
-            char ch = str.charAt(r);
-            map.put(ch,map.getOrDefault(ch,0)+1);
+        List<Double> list  = new ArrayList<>();
+        
+        for(int i=0;i<arr.length;i++){
             
-            while(map.get(ch)>k){
-                char left = str.charAt(l);
-               map.put(left,map.getOrDefault(left,0)-1); 
-               l++;
+            if(left.isEmpty() || arr[i]<=left.peek()){
+                left.offer(arr[i]);
+            }
+            else{
+                right.offer(arr[i]);
             }
             
-            if(r-l+1>size){
-                size=r-l+1;
-                s=l;
+            while(left.size()>right.size()+1){
+                right.offer(left.poll());
+            }
+            
+            while(right.size()>left.size()){
+                left.offer(right.poll());
+            }
+            
+            //Remove out of the window element
+            if(i>=k){ // i>=k
+                int remove = arr[i-k];
+                if(remove>left.peek()){
+                    right.remove(remove);
+                }
+                else{
+                    left.remove(remove);
+                }
+            while(left.size()>right.size()+1){
+                right.offer(left.poll());
+            }
+            
+            while(right.size()>left.size()){
+                left.offer(right.poll());
+            }
+            }
+            
+            if(i>=k-1){
+                if(left.size()>right.size()){
+                    list.add(Double.valueOf(left.peek()));
+                    
+                }
+                else{
+                    list.add(((long) left.peek() + (long) right.peek()) / 2.0);
+
+                }
             }
         }
         
-        System.out.println(str.substring(s,s+size));
+        double[] db = list.stream().mapToDouble(Double::doubleValue).toArray();
+        System.out.println(Arrays.toString(db));
         System.out.println("Try programiz.pro");
-    }
     
-public static void main(String[] args) {
-        
-        //int[] arr = {1,3,-1,-3,5,3,6,7};
-        int[] arr = {1,2,3,4,5,6,7,8};
-        int k=3;
-        
-        Deque<Integer> deque = new ArrayDeque<>();
-        List<Integer> list = new ArrayList<>();
-        
-        for(int r=0;r<arr.length;r++){
-            
-            while(!deque.isEmpty() && deque.peekFirst()<=r-k){
-                deque.pollFirst();
-            }
-            
-            while(!deque.isEmpty() && arr[deque.peekLast()]<arr[r]){
-                System.out.println(deque);
-                deque.pollLast();
-                System.out.println(deque);
-            }
-            
-            deque.addLast(r);
-            
-            if(r>=k-1){
-                list.add(arr[deque.peekFirst()]);
-            }
-            
-        }
-        
-        System.out.println(list);
-        System.out.println("Try programiz.pro");
-    }
+	}
 
 }
