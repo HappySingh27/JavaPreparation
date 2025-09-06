@@ -106,6 +106,33 @@ public class DevCodingQuestions {
 	}
 
 	public static void parenthesisValidator() {
+		
+		/*
+		Why use Deque instead of Stack in Java?
+
+		1. Stack is old and synchronized:
+		   - Stack is a legacy class (extends Vector) from Java 1.0.
+		   - All methods are synchronized (thread-safe) but slower in single-threaded scenarios.
+		   - Most modern applications don’t need this overhead unless explicitly working with multithreading.
+
+		2. Deque is more versatile:
+		   - Deque can act as both a Stack (LIFO) and a Queue (FIFO).
+		   - Can use push/pop (stack mode) or addFirst/addLast (queue/deque mode).
+		   - ArrayDeque (common Deque implementation) is faster and uses less memory than Stack.
+
+		3. Cleaner API for both ends:
+		   - Stack only supports push(), pop(), and peek() from one end.
+		   - Deque supports operations from both ends: addFirst, addLast, pollFirst, pollLast, etc.
+
+		4. Official Java recommendation:
+		   - Java docs explicitly recommend using Deque over Stack for stack-like behavior.
+
+		TL;DR:
+		You can use Stack for simple push/pop operations,
+		but Deque (especially ArrayDeque) is modern, faster, more flexible, and officially recommended.
+		*/
+
+		
 		String str = "";
 
 		Map<Character, Character> map = Map.of(')', '(', '}', '{', ']', '[');
