@@ -136,7 +136,7 @@ public class StreamPrograms {
 
 		List<Integer> listOfIntegers = Arrays.asList(45, 12, 56, 15, 24, 75, 31, 89);
 
-		listOfIntegers = listOfIntegers.stream().filter(x -> x % 5 == 0).toList();
+		listOfIntegers = listOfIntegers.stream().filter(x -> x % 5 == 0).collect(Collectors.toList());
 
 		System.out.println(listOfIntegers);
 	}
@@ -161,7 +161,7 @@ public class StreamPrograms {
 		int[] a = new int[] { 4, 2, 7, 1 };
 		int[] b = new int[] { 8, 3, 9, 5 };
 
-		List<Integer> list = Stream.concat(Arrays.stream(a).boxed(), Arrays.stream(b).boxed()).sorted().toList();
+		List<Integer> list = Stream.concat(Arrays.stream(a).boxed(), Arrays.stream(b).boxed()).sorted().collect(Collectors.toList());
 
 		System.out.println(list);
 

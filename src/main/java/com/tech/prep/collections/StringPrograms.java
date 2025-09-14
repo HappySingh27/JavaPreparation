@@ -434,7 +434,8 @@ public class StringPrograms {
                 .filter(x -> list2.contains(x) && !x.equals(" "))
                 .distinct()
                 .sorted()
-                .toList();
+					.collect(Collectors.toList());
+
         
         // We can even chain intermidiate methods of stream like filter().
         /*-------------------------------------------//

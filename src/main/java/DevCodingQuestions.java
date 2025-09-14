@@ -6,7 +6,7 @@ public class DevCodingQuestions {
 
 	public static void groupAnagramsInSubList() {
 
-		List<String> input = List.of("eat", "tea", "tan", "ate", "nat", "bat");
+		List<String> input = Arrays.asList("eat", "tea", "tan", "ate", "nat", "bat");
 
 		Map<String, List<String>> map = new HashMap();
 
@@ -135,7 +135,10 @@ public class DevCodingQuestions {
 		
 		String str = "";
 
-		Map<Character, Character> map = Map.of(')', '(', '}', '{', ']', '[');
+		Map<Character, Character> map = new HashMap<>();
+		map.put(')', '(');
+		map.put('}', '{');
+		map.put(']', '[');
 
 		Deque<Character> stack = new ArrayDeque<>();
 		boolean isValid = true;
